@@ -15,6 +15,7 @@ class CurrencyApp : Application() {
                 listOf(
                     networkModule,
                     currencyListModule
+
                 )
             )
         }

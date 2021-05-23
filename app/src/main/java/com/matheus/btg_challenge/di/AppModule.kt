@@ -3,6 +3,7 @@ package com.matheus.btg_challenge.di
 import com.matheus.btg_challenge.network.provideCurrencyListService
 import com.matheus.btg_challenge.network.provideCurrencyLiveService
 import com.matheus.btg_challenge.network.provideRetrofit
+import com.matheus.btg_challenge.repository.HomeRepository
 import com.matheus.btg_challenge.repository.ListRepository
 import org.koin.dsl.module
 
@@ -15,4 +16,8 @@ val networkModule = module {
 
 val currencyListModule = module {
     single { ListRepository(get()) }
+}
+
+val currencyLiveModule = module {
+    single { HomeRepository(get()) }
 }

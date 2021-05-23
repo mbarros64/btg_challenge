@@ -7,25 +7,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.matheus.btg_challenge.R
 import com.matheus.btg_challenge.network.service.ApiList
+import com.matheus.btg_challenge.network.service.ApiLive
+import com.matheus.btg_challenge.repository.HomeRepository
 import com.matheus.btg_challenge.repository.ListRepository
 import org.koin.android.ext.android.inject
 
 
 class HomeFragment : Fragment() {
     private val remoteCurrencyList : ApiList by inject()
+    private val remoteCurrencyLive : ApiLive by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        println("Acho que to aqui 1")
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        println("Acho que to aqui")
-        ListRepository(remoteCurrencyList).getCurrencyListFromApi()
+        //ListRepository(remoteCurrencyList).getCurrencyListFromApi()
+        HomeRepository(remoteCurrencyLive = remoteCurrencyLive).getCurrencyLiveFromApi()
     }
 }

@@ -20,12 +20,17 @@ class ListRepository(
                 if(currencyListData.isSuccessful){
                     val currencies = currencyListData.body()?.currencies
                     val typeKeys : MutableList<String> = mutableListOf()
+                    val currencyList : MutableList<Map<String, String?>> = mutableListOf()
+
 
                     currencies.let {
                         typeKeys.addAll(it!!.keys.toList())
+                        for (key in typeKeys){
+                            currencyList.add(mapOf(key to it[key]))
+                        }
                     }
 
-                    println("typekeys $typeKeys")
+                    println("list $currencyList")
                 }
 
 
