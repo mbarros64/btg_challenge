@@ -5,7 +5,7 @@ import com.matheus.btg_challenge.network.service.ApiLive
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val URL_BASE = "https://btg-mobile-challenge.herokuapp.com/"
+private const val URL_BASE = "https://btg-mobile-challenge.herokuapp.com"
 
 fun provideRetrofit() : Retrofit {
     return Retrofit.Builder()

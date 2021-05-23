@@ -14,19 +14,18 @@ import org.koin.android.ext.android.inject
 class HomeFragment : Fragment() {
     private val remoteCurrencyList : ApiList by inject()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        println("Acho que to aqui 1")
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        println("Acho que to aqui")
         ListRepository(remoteCurrencyList).getCurrencyListFromApi()
     }
-
-
 }
