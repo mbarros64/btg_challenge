@@ -13,6 +13,7 @@ import com.matheus.btg_challenge.repository.ListRepository
 import org.koin.android.ext.android.inject
 
 
+
 class HomeFragment : Fragment() {
     private val remoteCurrencyList : ApiList by inject()
     private val remoteCurrencyLive : ApiLive by inject()
@@ -26,7 +27,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //ListRepository(remoteCurrencyList).getCurrencyListFromApi()
-        HomeRepository(remoteCurrencyLive = remoteCurrencyLive).getCurrencyLiveFromApi()
+        HomeRepository(localData = localResources,
+            remoteCurrencyRate = remoteCurrencyLive,
+            remoteCurrencyList = remoteCurrencyList).getExchangeRateValues()
     }
 }
